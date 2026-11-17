@@ -1,0 +1,56 @@
+// ==========================================================================
+// Design tokens
+// ==========================================================================
+
+// Colors
+$color-ink:          #1C1B19;
+$color-ink-soft:     #4A463F;
+$color-muted:        #5E5A53;
+$color-white:        #FFFFFF;
+$color-stone:        #F6F3EE;
+$color-line:         #ECE7DF;
+$color-line-strong:  #D9D2C5;
+$color-input:        #CFC7B9;
+
+$color-accent:       #B5441B; // buttons, links (5.5:1 on white)
+$color-accent-dark:  #8F3412; // eyebrows, link hover
+$color-accent-tint:  #FBEDE6;
+$color-accent-light: #F2A07B; // eyebrows/icons on dark bands
+$color-logo:         #F07625; // brand orange — logo only
+
+$color-oak:          #1F2A22; // dark bands
+$color-oak-2:        #26342A;
+$color-oak-line:     #3A4A3F;
+$color-oak-deep:     #161E18; // footer
+$color-on-dark:      #F4EFE6;
+$color-on-dark-soft: #CFC8BB;
+$color-on-dark-mute: #B8B2A6;
+
+// Placeholder tones (remove once real photos are in)
+$ph-sand:  #E4DCCE;
+$ph-sage:  #D6DDD3;
+$ph-blush: #EFE6DF;
+$ph-clay:  #D9CFBF;
+$ph-oat:   #E9E3D8;
+$ph-mist:  #DFE4DC;
+$ph-lilac: #E6E1EA;
+
+// Typography
+$font-display: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+$font-body:    'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+// Layout
+$container-max: 1200px;
+$radius-sm: 12px;
+$radius-md: 20px;
+$radius-lg: 24px;
+$radius-xl: 28px;
+$radius-pill: 999px;
+
+// Breakpoints (mobile-first, min-width only)
+$breakpoints: (
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px
+);

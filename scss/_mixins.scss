@@ -1,0 +1,22 @@
+@use 'sass:map';
+@use 'variables' as *;
+
+// Mobile-first media query: @include mq(md) { ... }
+@mixin mq($bp) {
+  @media (min-width: map.get($breakpoints, $bp)) {
+    @content;
+  }
+}
+
+@mixin eyebrow($color: $color-accent-dark) {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $color;
+}
+
+@mixin focus-ring($color: $color-accent) {
+  outline: 3px solid $color;
+  outline-offset: 3px;
+}

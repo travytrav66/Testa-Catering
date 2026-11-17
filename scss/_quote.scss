@@ -1,0 +1,155 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.quote {
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__eyebrow { @include eyebrow($color-accent-light); }
+
+  &__title {
+    font-size: clamp(2.25rem, 5vw, 4rem);
+    line-height: 1.02;
+    font-weight: 700;
+  }
+
+  &__text {
+    max-width: 30em;
+    font-size: 1.125rem;
+    color: $color-on-dark-soft;
+  }
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 16px;
+  padding: 28px 0 0;
+  border-top: 1px solid $color-oak-line;
+  list-style: none;
+
+  li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    margin-top: 3px;
+    color: $color-accent-light;
+  }
+
+  strong {
+    display: block;
+    color: $color-white;
+  }
+
+  a {
+    color: $color-on-dark;
+
+    &:hover { color: $color-white; }
+  }
+
+  address { font-style: normal; }
+}
+
+// Quote form
+.quote-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 24px;
+  border-radius: $radius-xl;
+  background: $color-white;
+  color: $color-ink;
+
+  @include mq(md) { padding: 32px; }
+
+  &__row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+
+    @include mq(sm) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  &__note {
+    font-size: 0.8125rem;
+    color: $color-muted;
+    text-align: center;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  label,
+  legend {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    min-height: 50px;
+    padding: 0 14px;
+    border: 1px solid $color-input;
+    border-radius: $radius-sm;
+    background: $color-white;
+    color: $color-ink;
+    font: inherit;
+
+    &:hover { border-color: $color-muted; }
+
+    &:focus-visible {
+      outline: none;
+      border-color: $color-accent;
+      box-shadow: 0 0 0 3px rgba($color-accent, 0.25);
+    }
+  }
+
+  textarea {
+    padding-block: 12px;
+    resize: vertical;
+  }
+
+  &--group {
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+    legend { margin-bottom: 8px; padding: 0; }
+  }
+
+  &__options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 20px;
+  }
+}
+
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  font-weight: 400 !important;
+  font-size: 1rem !important;
+  cursor: pointer;
+
+  input {
+    width: 20px;
+    height: 20px;
+    min-height: 0;
+    accent-color: $color-accent;
+  }
+}

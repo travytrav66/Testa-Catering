@@ -1,0 +1,240 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// --------------------------------------------------------------------------
+// Image frames + placeholders
+// Swap the .ph block for an <img class="media__img"> once photos are in.
+// --------------------------------------------------------------------------
+.media {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding: 16px;
+  background: $ph-sand;
+
+  &__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &--hero    { aspect-ratio: 4 / 5; border-radius: $radius-xl; background: $ph-clay; padding: 20px; align-items: flex-start; } // label top-left; badge sits bottom-left
+  &--card    { aspect-ratio: 16 / 10; }
+  &--feature { aspect-ratio: 5 / 4; border-radius: $radius-lg; background: #34443A; padding: 20px; }
+  &--square  { aspect-ratio: 1 / 1; border-radius: $radius-md; }
+  &--tall    { aspect-ratio: 3 / 4; border-radius: 16px; }
+
+  &--sand  { background: $ph-sand; }
+  &--sage  { background: $ph-sage; }
+  &--blush { background: $ph-blush; }
+  &--clay  { background: $ph-clay; }
+  &--oat   { background: $ph-oat; }
+  &--mist  { background: $ph-mist; }
+  &--lilac { background: $ph-lilac; }
+
+  &__label {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: $radius-pill;
+    background: rgba($color-white, 0.8);
+    color: #3D3932;
+    font-size: 0.8125rem;
+    font-weight: 600;
+
+    .icon { width: 16px; height: 16px; }
+  }
+
+  &--feature &__label {
+    background: rgba(0, 0, 0, 0.35);
+    color: $color-on-dark;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Service cards
+// --------------------------------------------------------------------------
+.service-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid $color-line;
+  border-radius: $radius-lg;
+  background: $color-white;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 16px;
+    padding: 24px;
+
+    @include mq(md) { padding: 32px; }
+  }
+
+  &__title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  &__text { color: $color-ink-soft; }
+
+  .btn-row {
+    margin-top: auto;
+    padding-top: 12px;
+  }
+}
+
+// --------------------------------------------------------------------------
+// BBQ feature
+// --------------------------------------------------------------------------
+.feature {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__eyebrow { @include eyebrow($color-accent-light); }
+
+  &__title {
+    font-size: clamp(2.125rem, 4.4vw, 3.625rem);
+    line-height: 1.04;
+    font-weight: 700;
+  }
+
+  &__text {
+    font-size: 1.125rem;
+    color: $color-on-dark-soft;
+  }
+
+  .btn-row { margin-top: 8px; }
+}
+
+// --------------------------------------------------------------------------
+// Rental tiles
+// --------------------------------------------------------------------------
+.rental-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  color: $color-ink;
+  text-decoration: none;
+
+  &__name {
+    font-size: 1.375rem;
+    font-weight: 700;
+  }
+
+  .media { transition: transform 0.2s ease; }
+
+  &:hover {
+    color: $color-accent;
+
+    .media { transform: translateY(-4px); }
+  }
+}
+
+// --------------------------------------------------------------------------
+// Steps
+// --------------------------------------------------------------------------
+.steps {
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 28px;
+  border-radius: $radius-lg;
+  background: $color-white;
+
+  @include mq(md) { padding: 32px; }
+
+  &__num {
+    font-size: 2.75rem;
+    font-weight: 800;
+    line-height: 1;
+    color: $color-accent;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  &__text { color: $color-ink-soft; }
+}
+
+// --------------------------------------------------------------------------
+// Reviews
+// --------------------------------------------------------------------------
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 28px;
+  border: 1px solid $color-line;
+  border-radius: $radius-lg;
+
+  @include mq(md) { padding: 32px; }
+
+  &__stars {
+    width: 112px;
+    height: 20px;
+    color: $color-accent;
+  }
+
+  &__quote {
+    font-size: 1.125rem;
+    line-height: 1.55;
+  }
+
+  &__cite {
+    margin-top: auto;
+    font-size: 0.875rem;
+    color: $color-muted;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Gallery strip
+// --------------------------------------------------------------------------
+.gallery {
+  padding-bottom: 72px;
+
+  @include mq(md) { padding-bottom: 104px; }
+
+  &__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    font-size: 1.75rem;
+    font-weight: 700;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 0;
+    list-style: none;
+
+    @include mq(md) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+}

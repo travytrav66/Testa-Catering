@@ -1,0 +1,15 @@
+// ==========================================================================
+// Testa Catering & Event Rentals — main stylesheet
+// Mobile-first: base styles target phones; min-width queries scale up.
+// Compile: sass scss/main.scss css/main.css --style=compressed --no-source-map
+// ==========================================================================
+
+@use 'base';
+@use 'layout';
+@use 'buttons';
+@use 'header';
+@use 'hero';
+@use 'components';
+@use 'quote';
+@use 'footer';
+@use 'motion';

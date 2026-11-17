@@ -1,0 +1,100 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.site-footer {
+  background: $color-oak-deep;
+  color: $color-on-dark-soft;
+  font-size: 0.9375rem;
+
+  &__inner {
+    padding-top: 64px;
+    padding-bottom: 32px;
+
+    @include mq(md) { padding-top: 72px; }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+
+    @include mq(md) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    @include mq(lg) { grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); }
+  }
+
+  &__about {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 340px;
+  }
+
+  &__heading {
+    @include eyebrow($color-white);
+    margin-bottom: 8px;
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    a {
+      display: inline-block;
+      padding: 6px 0;
+      color: $color-on-dark-soft;
+      text-decoration: none;
+
+      &:hover { color: $color-white; text-decoration: underline; }
+    }
+
+    address { font-style: normal; }
+  }
+
+  &__phone {
+    color: $color-white !important;
+    font-weight: 600;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid #2C3A30;
+    font-size: 0.8125rem;
+    color: $color-on-dark-mute;
+  }
+}
+
+.social {
+  display: flex;
+  gap: 10px;
+  padding: 0;
+  list-style: none;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid $color-oak-line;
+    border-radius: $radius-pill;
+    color: $color-on-dark;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+
+    &:hover {
+      border-color: $color-accent-light;
+      background: $color-oak-2;
+      color: $color-white;
+    }
+  }
+}

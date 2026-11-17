@@ -1,0 +1,135 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.container {
+  width: 100%;
+  max-width: $container-max;
+  margin-inline: auto;
+  padding-inline: 20px;
+
+  @include mq(md) { padding-inline: 32px; }
+}
+
+.section {
+  padding-block: 72px;
+
+  @include mq(md) { padding-block: 104px; }
+
+  &--stone { background: $color-stone; }
+
+  &--dark {
+    background: $color-oak;
+    color: $color-on-dark;
+  }
+}
+
+// Section heading block
+.section-head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 720px;
+  margin-bottom: 40px;
+
+  @include mq(md) { margin-bottom: 48px; }
+
+  &__eyebrow { @include eyebrow; }
+
+  &__title {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    line-height: 1.08;
+    font-weight: 700;
+  }
+
+  &__lead {
+    font-size: 1.125rem;
+    color: $color-ink-soft;
+  }
+
+  // Heading on the left, action on the right
+  &--split {
+    max-width: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  &--split &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 640px;
+  }
+}
+
+// Grids
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+
+  &--2 {
+    @include mq(md) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  &--3 {
+    @include mq(md) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+
+  &--4 {
+    gap: 16px;
+
+    @include mq(sm) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    @include mq(lg) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+}
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+
+  @include mq(lg) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 80px;
+  }
+
+  &--top { align-items: start; }
+}
+
+// Arrow text link
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-weight: 600;
+  text-decoration: none;
+
+  .icon { transition: transform 0.15s ease; }
+
+  &:hover .icon { transform: translateX(3px); }
+}
+
+// Check list
+.check-list {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .icon {
+    margin-top: 4px;
+    color: $color-accent;
+  }
+}

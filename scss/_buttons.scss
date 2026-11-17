@@ -1,0 +1,69 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 26px;
+  border: 1.5px solid transparent;
+  border-radius: $radius-pill;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+  &--primary {
+    background: $color-accent;
+    color: $color-white;
+
+    &:hover { background: $color-accent-dark; color: $color-white; }
+  }
+
+  &--outline {
+    background: $color-white;
+    border-color: $color-ink;
+    color: $color-ink;
+
+    &:hover { background: $color-ink; color: $color-white; }
+  }
+
+  &--ghost {
+    background: $color-white;
+    border-color: $color-line-strong;
+    color: $color-ink;
+
+    &:hover { border-color: $color-ink; color: $color-ink; }
+  }
+
+  &--on-dark {
+    background: transparent;
+    border-color: #6E7C70;
+    color: $color-white;
+
+    &:hover { border-color: $color-white; color: $color-white; }
+  }
+
+  &--sm {
+    min-height: 46px;
+    padding: 0 22px;
+    font-size: 0.9375rem;
+  }
+
+  &--block { width: 100%; }
+
+  .icon { transition: transform 0.15s ease; }
+  &:hover .icon { transform: translateX(3px); }
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
